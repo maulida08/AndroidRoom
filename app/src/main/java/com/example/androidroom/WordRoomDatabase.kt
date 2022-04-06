@@ -49,8 +49,6 @@ abstract class WordRoomDatabase : RoomDatabase(){
              */
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
-                // Jika Anda ingin menyimpan data melalui restart aplikasi,
-                // mengomentari baris berikut.
                 INSTANCE?.let { database ->
                     scope.launch(Dispatchers.IO) {
                         populateDatabase(database.wordDao())
